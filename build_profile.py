@@ -10,18 +10,18 @@ from PIL import Image
 CONFIG = {
     "username": "kseenivasan39-del",
     "name": "Anish",
-    "role": "Full-Stack Developer & AI Specialist",
-    "origin": "Tamil Nadu, India",
-    "education": "B.Tech in Computer Science / AI",
-    "status": "Building • Learning • Shipping",
-    "toolchain": "VS Code, Git, Docker, Postman",
+    "role": "Aeronautics & Space Technology",
+    "origin": "India",
+    "education": "Aeronautics & Space Technology",
+    "status": "Exploring Space-Tech • Programming",
+    "toolchain": "Git, MATLAB, VS Code, Python",
     
     # Core Skills
-    "core_lang": "Python, JavaScript, TypeScript, C++",
-    "core_frontend": "React, HTML5, CSS3, Tailwind CSS",
-    "core_backend": "Node.js, Express, Fastify, REST APIs",
-    "core_database": "PostgreSQL, MongoDB, Redis",
-    "core_infra": "Docker, AWS, GitHub Actions, Vercel",
+    "core_lang": "Python, C, SQL",
+    "core_frontend": "HTML5, CSS3",
+    "core_backend": "Python, SQL",
+    "core_database": "SQL, SQLite",
+    "core_infra": "GitHub Actions",
     
     # Contact & Socials
     "contact_email": "anish@example.com",
