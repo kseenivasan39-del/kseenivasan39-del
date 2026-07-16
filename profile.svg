@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="550" viewBox="0 0 1000 550">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bgGlow" cx="50%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+    
+    <!-- Neon Border Gradient -->
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="50%" stop-color="#818CF8"/>
+      <stop offset="100%" stop-color="#10B981"/>
+    </linearGradient>
+
+    <!-- Animated ASCII Gradient -->
+    <linearGradient id="asciiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22D3EE">
+        <animate attributeName="stop-color" values="#22D3EE;#818CF8;#22D3EE" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#818CF8">
+        <animate attributeName="stop-color" values="#818CF8;#22D3EE;#818CF8" dur="6s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <!-- Scanlines Pattern -->
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#FFFFFF" opacity="0.03"/>
+    </pattern>
+    
+    <!-- Soft Glow Filter -->
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Typing Animation Clip Paths -->
+    <clipPath id="info_line_0"><rect x="470" y="65.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="0.50s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_1"><rect x="470" y="87.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="0.62s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_2"><rect x="470" y="109.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="0.74s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_3"><rect x="470" y="131.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="0.86s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_4"><rect x="470" y="153.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="0.98s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_5"><rect x="470" y="175.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="1.10s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_7"><rect x="470" y="219.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="1.22s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_8"><rect x="470" y="241.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="1.34s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_9"><rect x="470" y="263.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="1.46s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_10"><rect x="470" y="285.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="1.58s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_11"><rect x="470" y="307.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="1.70s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_13"><rect x="470" y="351.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="1.82s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_14"><rect x="470" y="373.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="1.94s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_15"><rect x="470" y="395.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="2.06s" fill="freeze"/></rect></clipPath>
+  <clipPath id="info_line_16"><rect x="470" y="417.00" width="0" height="24"><animate attributeName="width" from="0" to="500" dur="0.5s" begin="2.18s" fill="freeze"/></rect></clipPath>
+  </defs>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&amp;display=swap');
+    .term-text {
+      font-family: 'Fira Code', 'JetBrains Mono', monospace;
+      white-space: pre;
+    }
+    .glow-border {
+      filter: drop-shadow(0 0 4px #22D3EE40);
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="1000" height="550" fill="url(#bgGlow)" rx="12"/>
+  <rect width="1000" height="550" fill="url(#scanlines)" rx="12"/>
+
+  <!-- Outer Window Shell -->
+  <g class="glow-border">
+    <!-- Main Outer Border -->
+    <rect x="15" y="15" width="970" height="520" fill="none" stroke="url(#borderGrad)" stroke-width="1.5" rx="8"/>
+  </g>
+
+  <!-- Window Header Title Bar -->
+  <g>
+    <!-- Window Controls (Mac Style) -->
+    <circle cx="40" cy="35" r="5" fill="#EF4444"/>
+    <circle cx="55" cy="35" r="5" fill="#F59E0B"/>
+    <circle cx="70" cy="35" r="5" fill="#10B981"/>
+    
+    <!-- Terminal Command/Title -->
+    <text x="50%" y="40" fill="#64748B" font-size="12" font-family="'Fira Code', 'JetBrains Mono', monospace" text-anchor="middle">
+      kseenivasan39-del@devos ~ % ./profile.sh --live
+    </text>
+    
+    <!-- Scanning Status -->
+    <text x="910" y="40" fill="#EF4444" font-size="11" font-family="'Fira Code', 'JetBrains Mono', monospace" font-weight="bold" letter-spacing="1">
+      ● SCANNING
+      <animate attributeName="opacity" values="1;0.2;1" dur="1.5s" repeatCount="indefinite"/>
+    </text>
+  </g>
+
+  <!-- Inner Panels -->
+  <!-- Left Panel: VISUAL.MAP (ASCII Art) -->
+  <g>
+    <!-- Border -->
+    <rect x="25" y="60" width="410" height="460" fill="#030712" fill-opacity="0.6" stroke="#1E293B" stroke-width="1" rx="6"/>
+    <!-- Label -->
+    <rect x="40" y="52" width="90" height="16" fill="#0B1329" stroke="#1E293B" stroke-width="1" rx="3"/>
+    <text x="85" y="64" fill="#22D3EE" font-size="10" font-family="'Fira Code', 'JetBrains Mono', monospace" font-weight="bold" text-anchor="middle" letter-spacing="1">VISUAL.MAP</text>
+    
+    <!-- ASCII Art Display -->
+    <text class="term-text" font-size="7.5" line-height="9.5" fill="url(#asciiGrad)" font-weight="bold" filter="url(#softGlow)">
+      <tspan x="40" y="65.00">                     .:-=****++=-:.                    </tspan>
+<tspan x="40" y="74.50">                   .-+*************+=:                 </tspan>
+<tspan x="40" y="84.00">                  :***************###*-                </tspan>
+<tspan x="40" y="93.50">                 -*************######**-               </tspan>
+<tspan x="40" y="103.00">                :********###*###########+              </tspan>
+<tspan x="40" y="112.50">                =#####**#################-             </tspan>
+<tspan x="40" y="122.00">               .*########################=             </tspan>
+<tspan x="40" y="131.50">               :*#####################***+             </tspan>
+<tspan x="40" y="141.00">               =###############***********.            </tspan>
+<tspan x="40" y="150.50">             .=+##**###*++++=========*##*+.            </tspan>
+<tspan x="40" y="160.00">             -+=+#++++++++=------==++*##**.            </tspan>
+<tspan x="40" y="169.50">             -===*+==++**+*==-=+*****++#*+=.           </tspan>
+<tspan x="40" y="179.00">             :+==+=====+=====-++=**++++*+=+.           </tspan>
+<tspan x="40" y="188.50">              -=++==-------=--========++=+-            </tspan>
+<tspan x="40" y="198.00">               ..-==------==--==-----=++=-             </tspan>
+<tspan x="40" y="207.50">                  ===----===--==-----=--.              </tspan>
+<tspan x="40" y="217.00">                  -==========++==--==:                 </tspan>
+<tspan x="40" y="226.50">                  .=====+=====+++===-                  </tspan>
+<tspan x="40" y="236.00">                  :=====-=========+=.                  </tspan>
+<tspan x="40" y="245.50">                 .*=======-======+=+-                  </tspan>
+<tspan x="40" y="255.00">                 =*+==========+++=+**.                 </tspan>
+<tspan x="40" y="264.50">             ..-=****+==+++++++++****+:.               </tspan>
+<tspan x="40" y="274.00">          .::---+###**++=======+******=-::..           </tspan>
+<tspan x="40" y="283.50">      ..::-:-:--=#*#*****+===+********-::::::..        </tspan>
+<tspan x="40" y="293.00">  ..::::::::-:---+#*###******+*******=-:-:::::::..     </tspan>
+<tspan x="40" y="302.50">::---:::::::::--:=****####*=*#******+-::-::-::::--:..  </tspan>
+<tspan x="40" y="312.00">-----::::-:::::-::+**#*****==+=+****=::::::-::-::----:.</tspan>
+<tspan x="40" y="321.50">-----::--:::::::-:=**+------:::-=+*+-::::-:-::-::-::---</tspan>
+<tspan x="40" y="331.00">-----:---::::::::--+=-::-::::::::---:::::::-:--:--::::-</tspan>
+<tspan x="40" y="340.50">-------:::::::::::-::::::-::::::::::::::::-::-----:::--</tspan>
+<tspan x="40" y="350.00">--------:::::::::::::::::-::::::::::::::::-::-:----::--</tspan>
+<tspan x="40" y="359.50">------:--::::::::::::::::::::::::::::::::::::---:--:---</tspan>
+<tspan x="40" y="369.00">------:--:::::::::::::::::::::::::::::::::::::--:------</tspan>
+<tspan x="40" y="378.50">----------:--:::::::::-::::::::::::::-:::::-::---------</tspan>
+<tspan x="40" y="388.00">-=--------:---::--:::--::::::::::-----:::::-::-::------</tspan>
+<tspan x="40" y="397.50">--=---------------::--:::::::::---+**++++=========-----</tspan>
+<tspan x="40" y="407.00">--=-------------------::-::-::----=+*********####+=----</tspan>
+<tspan x="40" y="416.50">--------------------------:------:::------========-----</tspan>
+    </text>
+  </g>
+
+  <!-- Right Panel: SYSTEM.INFO (Details) -->
+  <g>
+    <!-- Border -->
+    <rect x="450" y="60" width="525" height="460" fill="#030712" fill-opacity="0.6" stroke="#1E293B" stroke-width="1" rx="6"/>
+    <!-- Label -->
+    <rect x="465" y="52" width="100" height="16" fill="#0B1329" stroke="#1E293B" stroke-width="1" rx="3"/>
+    <text x="515" y="64" fill="#818CF8" font-size="10" font-family="'Fira Code', 'JetBrains Mono', monospace" font-weight="bold" text-anchor="middle" letter-spacing="1">SYSTEM.INFO</text>
+
+    <!-- Title inside panel -->
+    <text x="470" y="86" fill="#818CF8" font-size="14" font-family="'Fira Code', 'JetBrains Mono', monospace" font-weight="bold">
+      kseenivasan39-del@devos
+    </text>
+    
+    <!-- Divider Line under user heading -->
+    <line x1="470" y1="94" x2="955" y2="94" stroke="#334155" stroke-dasharray="3,3"/>
+
+    <!-- Key-Value Lines -->
+    <text x="470" y="80.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_0)"><tspan fill="#10B981" font-weight="bold">Subject</tspan><tspan fill="#4B5563">.............</tspan> <tspan fill="#F3F4F6">Anish</tspan></text>
+  <text x="470" y="102.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_1)"><tspan fill="#10B981" font-weight="bold">Role</tspan><tspan fill="#4B5563">................</tspan> <tspan fill="#F3F4F6">Full-Stack Developer &amp; AI Specialist</tspan></text>
+  <text x="470" y="124.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_2)"><tspan fill="#10B981" font-weight="bold">Origin</tspan><tspan fill="#4B5563">..............</tspan> <tspan fill="#F3F4F6">Tamil Nadu, India</tspan></text>
+  <text x="470" y="146.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_3)"><tspan fill="#10B981" font-weight="bold">Education</tspan><tspan fill="#4B5563">...........</tspan> <tspan fill="#F3F4F6">B.Tech in Computer Science / AI</tspan></text>
+  <text x="470" y="168.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_4)"><tspan fill="#10B981" font-weight="bold">Status</tspan><tspan fill="#4B5563">..............</tspan> <tspan fill="#F3F4F6">Building • Learning • Shipping</tspan></text>
+  <text x="470" y="190.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_5)"><tspan fill="#10B981" font-weight="bold">ToolChain</tspan><tspan fill="#4B5563">...........</tspan> <tspan fill="#F3F4F6">VS Code, Git, Docker, Postman</tspan></text>
+  <text x="470" y="234.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_7)"><tspan fill="#10B981" font-weight="bold">Core.Lang</tspan><tspan fill="#4B5563">...........</tspan> <tspan fill="#F3F4F6">Python, JavaScript, TypeScript, C++</tspan></text>
+  <text x="470" y="256.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_8)"><tspan fill="#10B981" font-weight="bold">Core.Frontend</tspan><tspan fill="#4B5563">.......</tspan> <tspan fill="#F3F4F6">React, HTML5, CSS3, Tailwind CSS</tspan></text>
+  <text x="470" y="278.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_9)"><tspan fill="#10B981" font-weight="bold">Core.Backend</tspan><tspan fill="#4B5563">........</tspan> <tspan fill="#F3F4F6">Node.js, Express, Fastify, REST APIs</tspan></text>
+  <text x="470" y="300.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_10)"><tspan fill="#10B981" font-weight="bold">Core.Database</tspan><tspan fill="#4B5563">.......</tspan> <tspan fill="#F3F4F6">PostgreSQL, MongoDB, Redis</tspan></text>
+  <text x="470" y="322.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_11)"><tspan fill="#10B981" font-weight="bold">Core.Infra</tspan><tspan fill="#4B5563">..........</tspan> <tspan fill="#F3F4F6">Docker, AWS, GitHub Actions, Vercel</tspan></text>
+  <text x="470" y="366.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_13)"><tspan fill="#10B981" font-weight="bold">Contact.Mail</tspan><tspan fill="#4B5563">........</tspan> <tspan fill="#F3F4F6">anish@example.com</tspan></text>
+  <text x="470" y="388.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_14)"><tspan fill="#10B981" font-weight="bold">Contact.Web</tspan><tspan fill="#4B5563">.........</tspan> <tspan fill="#F3F4F6">anish.dev</tspan></text>
+  <text x="470" y="410.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_15)"><tspan fill="#10B981" font-weight="bold">Contact.In</tspan><tspan fill="#4B5563">..........</tspan> <tspan fill="#F3F4F6">anish-profile</tspan></text>
+  <text x="470" y="432.00" fill="#9CA3AF" font-size="13" clip-path="url(#info_line_16)"><tspan fill="#10B981" font-weight="bold">Contact.Git</tspan><tspan fill="#4B5563">.........</tspan> <tspan fill="#F3F4F6">kseenivasan39-del</tspan></text>
+
+    <!-- Live Stats Note at Bottom -->
+    <text x="470" y="490" fill="#64748B" font-size="11" font-family="'Fira Code', 'JetBrains Mono', monospace">
+      - Live Stats ---------------------------------------
+    </text>
+    <text x="470" y="508" fill="#9CA3AF" font-size="12" font-family="'Fira Code', 'JetBrains Mono', monospace">
+      See live GitHub stats badges below in README ↓
+    </text>
+  </g>
+</svg>
