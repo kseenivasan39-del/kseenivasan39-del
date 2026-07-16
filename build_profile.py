@@ -11,7 +11,7 @@ CONFIG = {
     "username": "kseenivasan39-del",
     "name": "Anish",
     "role": "Aeronautics & Space Technology",
-    "origin": "India",
+    "origin": "Tamil Nadu, India",
     "education": "Aeronautics & Space Technology",
     "status": "Exploring Space-Tech • Programming",
     "toolchain": "Git, MATLAB, VS Code, Python",
@@ -94,6 +94,13 @@ def image_to_ascii(image_path, width=50, invert=False):
             line_chars.append(chars[char_idx])
         ascii_lines.append("".join(line_chars))
         
+    # Trim common leading whitespace to shift the portrait left
+    non_empty_lines = [l for l in ascii_lines if l.strip()]
+    if non_empty_lines:
+        min_leading = min(len(l) - len(l.lstrip()) for l in non_empty_lines)
+        # Shift left and add a small 2-space padding
+        ascii_lines = [("  " + l[min_leading:]) for l in ascii_lines]
+        
     return ascii_lines
 
 def get_placeholder_ascii():
@@ -165,8 +172,8 @@ def generate_svg(ascii_lines, output_path="profile.svg"):
     ]
     
     info_xml_lines = []
-    info_start_y = 80
-    info_line_height = 22
+    info_start_y = 125
+    info_line_height = 21
     
     # Generate line-by-line clipPaths for the typing animation
     clip_paths = []
@@ -185,8 +192,6 @@ def generate_svg(ascii_lines, output_path="profile.svg"):
             continue
             
         # Standard layout: Label : Value with leader dots
-        # E.g. "  Role: ......................... Developer"
-        # Total characters roughly 60
         label = f"  {key}"
         label_len = len(label)
         
@@ -196,9 +201,6 @@ def generate_svg(ascii_lines, output_path="profile.svg"):
         line_text = f"{label} {leader_dots} {value}"
         escaped_line = escape_xml(line_text)
         
-        # We wrap keys in coloring by splitting in SVG, or just render it as a single line.
-        # To make it gorgeous, let's write it with colored spans:
-        # <tspan fill="#10B981">key</tspan> <tspan fill="#6B7280">...</tspan> <tspan fill="#F3F4F6">value</tspan>
         # Let's generate the text node with sub-tspans
         text_xml = (
             f'<text x="470" y="{y_pos:.2f}" fill="#9CA3AF" font-size="13" clip-path="url(#{clip_id})">'
@@ -252,6 +254,18 @@ def generate_svg(ascii_lines, output_path="profile.svg"):
     <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
       <rect width="4" height="1" fill="#FFFFFF" opacity="0.03"/>
     </pattern>
+
+    <!-- Cyberpunk Moving Laser Line Gradient -->
+    <linearGradient id="scanLineGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="{primary}" stop-opacity="0"/>
+      <stop offset="50%" stop-color="{primary}" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="{primary}" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Clip Path for Moving Laser Scanner -->
+    <clipPath id="windowClip">
+      <rect x="15" y="15" width="{svg_width - 30}" height="{svg_height - 30}" rx="8"/>
+    </clipPath>
     
     <!-- Soft Glow Filter -->
     <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
@@ -316,7 +330,7 @@ def generate_svg(ascii_lines, output_path="profile.svg"):
     <text x="85" y="64" fill="{primary}" font-size="10" font-family="{font}" font-weight="bold" text-anchor="middle" letter-spacing="1">VISUAL.MAP</text>
     
     <!-- ASCII Art Display -->
-    <text class="term-text" font-size="7.5" line-height="{line_height}" fill="url(#asciiGrad)" font-weight="bold" filter="url(#softGlow)">
+    <text class="term-text" font-size="7.5" fill="url(#asciiGrad)" font-weight="bold" filter="url(#softGlow)">
       {ascii_tspans}
     </text>
   </g>
@@ -348,6 +362,13 @@ def generate_svg(ascii_lines, output_path="profile.svg"):
       See live GitHub stats badges below in README ↓
     </text>
   </g>
+
+  <!-- Moving Laser Scanner Line -->
+  <g clip-path="url(#windowClip)">
+    <rect x="15" y="-10" width="{svg_width - 30}" height="8" fill="url(#scanLineGrad)" opacity="0.35">
+      <animate attributeName="y" from="15" to="{svg_height - 15}" dur="4s" repeatCount="indefinite"/>
+    </rect>
+  </g>
 </svg>
 """
     with open(output_path, "w", encoding="utf-8") as f:
@@ -364,8 +385,8 @@ def main():
         
     if os.path.exists(image_name):
         print(f"Found portrait image: '{image_name}'. Converting to ASCII...")
-        # Width 55 works best for the 410px wide panel
-        ascii_lines = image_to_ascii(image_name, width=55, invert=True)
+        # Width 72 works best for the 410px wide panel
+        ascii_lines = image_to_ascii(image_name, width=72, invert=True)
         # Write ASCII output to portrait.txt for review
         with open("portrait.txt", "w", encoding="utf-8") as f:
             f.write("\n".join(ascii_lines))
